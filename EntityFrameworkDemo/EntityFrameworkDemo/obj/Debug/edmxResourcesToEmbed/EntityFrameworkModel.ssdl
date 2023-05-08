@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Assignment2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Client_Master">
+    <Key>
+      <PropertyRef Name="ClientNo" />
+    </Key>
+    <Property Name="ClientNo" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Address1" Type="varchar" MaxLength="30" />
+    <Property Name="Address2" Type="varchar" MaxLength="30" />
+    <Property Name="City" Type="varchar" MaxLength="15" />
+    <Property Name="PinCode" Type="numeric" Precision="8" Scale="0" />
+    <Property Name="State" Type="varchar" MaxLength="15" />
+    <Property Name="BalDue" Type="numeric" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Product_Master">
+    <Key>
+      <PropertyRef Name="ProductNo" />
+    </Key>
+    <Property Name="ProductNo" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ProfitPerc" Type="numeric" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="UnitMeasure" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="QtyOnHand" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="ReOrderLvl" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="SellPrice" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="CostPrice" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sales_Order">
+    <Key>
+      <PropertyRef Name="OrderNo" />
+    </Key>
+    <Property Name="OrderNo" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="ClientNo" Type="varchar" MaxLength="6" />
+    <Property Name="OrderDate" Type="date" />
+    <Property Name="DelyAddr" Type="varchar" MaxLength="25" />
+    <Property Name="SalesmanNo" Type="varchar" MaxLength="6" />
+    <Property Name="DelyType" Type="char" MaxLength="1" />
+    <Property Name="BilledYn" Type="char" MaxLength="1" />
+    <Property Name="DelyDate" Type="date" />
+    <Property Name="OrderStatus" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Sales_Order_Details">
+    <Key>
+      <PropertyRef Name="OrderNo" />
+      <PropertyRef Name="ProductNo" />
+    </Key>
+    <Property Name="OrderNo" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="ProductNo" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="QtyOrdered" Type="numeric" Precision="8" Scale="0" />
+    <Property Name="QtyDisp" Type="numeric" Precision="8" Scale="0" />
+    <Property Name="ProductRate" Type="numeric" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Salesman_Master">
+    <Key>
+      <PropertyRef Name="SalesManNo" />
+    </Key>
+    <Property Name="SalesManNo" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="SalesmanName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Address1" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Address2" Type="varchar" MaxLength="30" />
+    <Property Name="City" Type="varchar" MaxLength="20" />
+    <Property Name="PinCode" Type="numeric" Precision="8" Scale="0" />
+    <Property Name="State" Type="varchar" MaxLength="20" />
+    <Property Name="salamt" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="tgttoget" Type="numeric" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="ytdsales" Type="numeric" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="remarks" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <Association Name="FK_To_ClientMaster">
+    <End Role="Client_Master" Type="Self.Client_Master" Multiplicity="0..1" />
+    <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client_Master">
+        <PropertyRef Name="ClientNo" />
+      </Principal>
+      <Dependent Role="Sales_Order">
+        <PropertyRef Name="ClientNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_to_ProductMaster">
+    <End Role="Product_Master" Type="Self.Product_Master" Multiplicity="1" />
+    <End Role="Sales_Order_Details" Type="Self.Sales_Order_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Master">
+        <PropertyRef Name="ProductNo" />
+      </Principal>
+      <Dependent Role="Sales_Order_Details">
+        <PropertyRef Name="ProductNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_to_SalesmanMaster">
+    <End Role="Salesman_Master" Type="Self.Salesman_Master" Multiplicity="0..1" />
+    <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salesman_Master">
+        <PropertyRef Name="SalesManNo" />
+      </Principal>
+      <Dependent Role="Sales_Order">
+        <PropertyRef Name="SalesmanNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_to_SalesOrder">
+    <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="1" />
+    <End Role="Sales_Order_Details" Type="Self.Sales_Order_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales_Order">
+        <PropertyRef Name="OrderNo" />
+      </Principal>
+      <Dependent Role="Sales_Order_Details">
+        <PropertyRef Name="OrderNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Assignment2ModelStoreContainer">
+    <EntitySet Name="Client_Master" EntityType="Self.Client_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Master" EntityType="Self.Product_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales_Order" EntityType="Self.Sales_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales_Order_Details" EntityType="Self.Sales_Order_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Salesman_Master" EntityType="Self.Salesman_Master" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_To_ClientMaster" Association="Self.FK_To_ClientMaster">
+      <End Role="Client_Master" EntitySet="Client_Master" />
+      <End Role="Sales_Order" EntitySet="Sales_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_to_ProductMaster" Association="Self.FK_to_ProductMaster">
+      <End Role="Product_Master" EntitySet="Product_Master" />
+      <End Role="Sales_Order_Details" EntitySet="Sales_Order_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_to_SalesmanMaster" Association="Self.FK_to_SalesmanMaster">
+      <End Role="Salesman_Master" EntitySet="Salesman_Master" />
+      <End Role="Sales_Order" EntitySet="Sales_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_to_SalesOrder" Association="Self.FK_to_SalesOrder">
+      <End Role="Sales_Order" EntitySet="Sales_Order" />
+      <End Role="Sales_Order_Details" EntitySet="Sales_Order_Details" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

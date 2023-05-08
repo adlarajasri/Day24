@@ -1,0 +1,13 @@
+D:\UST\Day24\EntityFrameworkDemo\EntityFrameworkDemo\bin\Debug\EntityFrameworkDemo.exe.config
+D:\UST\Day24\EntityFrameworkDemo\EntityFrameworkDemo\bin\Debug\EntityFrameworkDemo.exe
+D:\UST\Day24\EntityFrameworkDemo\EntityFrameworkDemo\bin\Debug\EntityFrameworkDemo.pdb
+D:\UST\Day24\EntityFrameworkDemo\EntityFrameworkDemo\bin\Debug\EntityFramework.dll
+D:\UST\Day24\EntityFrameworkDemo\EntityFrameworkDemo\bin\Debug\EntityFramework.SqlServer.dll
+D:\UST\Day24\EntityFrameworkDemo\EntityFrameworkDemo\bin\Debug\EntityFramework.xml
+D:\UST\Day24\EntityFrameworkDemo\EntityFrameworkDemo\bin\Debug\EntityFramework.SqlServer.xml
+D:\UST\Day24\EntityFrameworkDemo\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.csproj.AssemblyReference.cache
+D:\UST\Day24\EntityFrameworkDemo\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.csproj.SuggestedBindingRedirects.cache
+D:\UST\Day24\EntityFrameworkDemo\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.csproj.CoreCompileInputs.cache
+D:\UST\Day24\EntityFrameworkDemo\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.csproj.CopyComplete
+D:\UST\Day24\EntityFrameworkDemo\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.exe
+D:\UST\Day24\EntityFrameworkDemo\EntityFrameworkDemo\obj\Debug\EntityFrameworkDemo.pdb

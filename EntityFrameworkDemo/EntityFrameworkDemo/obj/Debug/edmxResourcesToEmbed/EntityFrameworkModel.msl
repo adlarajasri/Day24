@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Assignment2ModelStoreContainer" CdmEntityContainer="Assignment2Entities">
+    <EntitySetMapping Name="Client_Master">
+      <EntityTypeMapping TypeName="Assignment2Model.Client_Master">
+        <MappingFragment StoreEntitySet="Client_Master">
+          <ScalarProperty Name="ClientNo" ColumnName="ClientNo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="BalDue" ColumnName="BalDue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Master">
+      <EntityTypeMapping TypeName="Assignment2Model.Product_Master">
+        <MappingFragment StoreEntitySet="Product_Master">
+          <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProfitPerc" ColumnName="ProfitPerc" />
+          <ScalarProperty Name="UnitMeasure" ColumnName="UnitMeasure" />
+          <ScalarProperty Name="QtyOnHand" ColumnName="QtyOnHand" />
+          <ScalarProperty Name="ReOrderLvl" ColumnName="ReOrderLvl" />
+          <ScalarProperty Name="SellPrice" ColumnName="SellPrice" />
+          <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales_Order">
+      <EntityTypeMapping TypeName="Assignment2Model.Sales_Order">
+        <MappingFragment StoreEntitySet="Sales_Order">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="ClientNo" ColumnName="ClientNo" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="DelyAddr" ColumnName="DelyAddr" />
+          <ScalarProperty Name="SalesmanNo" ColumnName="SalesmanNo" />
+          <ScalarProperty Name="DelyType" ColumnName="DelyType" />
+          <ScalarProperty Name="BilledYn" ColumnName="BilledYn" />
+          <ScalarProperty Name="DelyDate" ColumnName="DelyDate" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales_Order_Details">
+      <EntityTypeMapping TypeName="Assignment2Model.Sales_Order_Details">
+        <MappingFragment StoreEntitySet="Sales_Order_Details">
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+          <ScalarProperty Name="QtyOrdered" ColumnName="QtyOrdered" />
+          <ScalarProperty Name="QtyDisp" ColumnName="QtyDisp" />
+          <ScalarProperty Name="ProductRate" ColumnName="ProductRate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salesman_Master">
+      <EntityTypeMapping TypeName="Assignment2Model.Salesman_Master">
+        <MappingFragment StoreEntitySet="Salesman_Master">
+          <ScalarProperty Name="SalesManNo" ColumnName="SalesManNo" />
+          <ScalarProperty Name="SalesmanName" ColumnName="SalesmanName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="salamt" ColumnName="salamt" />
+          <ScalarProperty Name="tgttoget" ColumnName="tgttoget" />
+          <ScalarProperty Name="ytdsales" ColumnName="ytdsales" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

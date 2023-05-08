@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Assignment2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Client_Master">
+    <Key>
+      <PropertyRef Name="ClientNo" />
+    </Key>
+    <Property Name="ClientNo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="PinCode" Type="Decimal" Precision="8" Scale="0" />
+    <Property Name="State" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="BalDue" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Sales_Order" Relationship="Self.FK_To_ClientMaster" FromRole="Client_Master" ToRole="Sales_Order" />
+  </EntityType>
+  <EntityType Name="Product_Master">
+    <Key>
+      <PropertyRef Name="ProductNo" />
+    </Key>
+    <Property Name="ProductNo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProfitPerc" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="UnitMeasure" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="QtyOnHand" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="ReOrderLvl" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="SellPrice" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="CostPrice" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Sales_Order_Details" Relationship="Self.FK_to_ProductMaster" FromRole="Product_Master" ToRole="Sales_Order_Details" />
+  </EntityType>
+  <EntityType Name="Sales_Order">
+    <Key>
+      <PropertyRef Name="OrderNo" />
+    </Key>
+    <Property Name="OrderNo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ClientNo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="OrderDate" Type="DateTime" Precision="0" />
+    <Property Name="DelyAddr" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="SalesmanNo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="DelyType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="BilledYn" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DelyDate" Type="DateTime" Precision="0" />
+    <Property Name="OrderStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Client_Master" Relationship="Self.FK_To_ClientMaster" FromRole="Sales_Order" ToRole="Client_Master" />
+    <NavigationProperty Name="Salesman_Master" Relationship="Self.FK_to_SalesmanMaster" FromRole="Sales_Order" ToRole="Salesman_Master" />
+    <NavigationProperty Name="Sales_Order_Details" Relationship="Self.FK_to_SalesOrder" FromRole="Sales_Order" ToRole="Sales_Order_Details" />
+  </EntityType>
+  <EntityType Name="Sales_Order_Details">
+    <Key>
+      <PropertyRef Name="OrderNo" />
+      <PropertyRef Name="ProductNo" />
+    </Key>
+    <Property Name="OrderNo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductNo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="QtyOrdered" Type="Decimal" Precision="8" Scale="0" />
+    <Property Name="QtyDisp" Type="Decimal" Precision="8" Scale="0" />
+    <Property Name="ProductRate" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Product_Master" Relationship="Self.FK_to_ProductMaster" FromRole="Sales_Order_Details" ToRole="Product_Master" />
+    <NavigationProperty Name="Sales_Order" Relationship="Self.FK_to_SalesOrder" FromRole="Sales_Order_Details" ToRole="Sales_Order" />
+  </EntityType>
+  <EntityType Name="Salesman_Master">
+    <Key>
+      <PropertyRef Name="SalesManNo" />
+    </Key>
+    <Property Name="SalesManNo" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SalesmanName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PinCode" Type="Decimal" Precision="8" Scale="0" />
+    <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="salamt" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="tgttoget" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="ytdsales" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="remarks" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Sales_Order" Relationship="Self.FK_to_SalesmanMaster" FromRole="Salesman_Master" ToRole="Sales_Order" />
+  </EntityType>
+  <Association Name="FK_To_ClientMaster">
+    <End Role="Client_Master" Type="Self.Client_Master" Multiplicity="0..1" />
+    <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client_Master">
+        <PropertyRef Name="ClientNo" />
+      </Principal>
+      <Dependent Role="Sales_Order">
+        <PropertyRef Name="ClientNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_to_ProductMaster">
+    <End Role="Product_Master" Type="Self.Product_Master" Multiplicity="1" />
+    <End Role="Sales_Order_Details" Type="Self.Sales_Order_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Master">
+        <PropertyRef Name="ProductNo" />
+      </Principal>
+      <Dependent Role="Sales_Order_Details">
+        <PropertyRef Name="ProductNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_to_SalesmanMaster">
+    <End Role="Salesman_Master" Type="Self.Salesman_Master" Multiplicity="0..1" />
+    <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salesman_Master">
+        <PropertyRef Name="SalesManNo" />
+      </Principal>
+      <Dependent Role="Sales_Order">
+        <PropertyRef Name="SalesmanNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_to_SalesOrder">
+    <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="1" />
+    <End Role="Sales_Order_Details" Type="Self.Sales_Order_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales_Order">
+        <PropertyRef Name="OrderNo" />
+      </Principal>
+      <Dependent Role="Sales_Order_Details">
+        <PropertyRef Name="OrderNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Assignment2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Client_Master" EntityType="Self.Client_Master" />
+    <EntitySet Name="Product_Master" EntityType="Self.Product_Master" />
+    <EntitySet Name="Sales_Order" EntityType="Self.Sales_Order" />
+    <EntitySet Name="Sales_Order_Details" EntityType="Self.Sales_Order_Details" />
+    <EntitySet Name="Salesman_Master" EntityType="Self.Salesman_Master" />
+    <AssociationSet Name="FK_To_ClientMaster" Association="Self.FK_To_ClientMaster">
+      <End Role="Client_Master" EntitySet="Client_Master" />
+      <End Role="Sales_Order" EntitySet="Sales_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_to_ProductMaster" Association="Self.FK_to_ProductMaster">
+      <End Role="Product_Master" EntitySet="Product_Master" />
+      <End Role="Sales_Order_Details" EntitySet="Sales_Order_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_to_SalesmanMaster" Association="Self.FK_to_SalesmanMaster">
+      <End Role="Salesman_Master" EntitySet="Salesman_Master" />
+      <End Role="Sales_Order" EntitySet="Sales_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_to_SalesOrder" Association="Self.FK_to_SalesOrder">
+      <End Role="Sales_Order" EntitySet="Sales_Order" />
+      <End Role="Sales_Order_Details" EntitySet="Sales_Order_Details" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
