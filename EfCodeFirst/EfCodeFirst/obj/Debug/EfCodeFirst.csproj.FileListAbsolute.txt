@@ -1,0 +1,13 @@
+D:\UST\Day24\EfCodeFirst\EfCodeFirst\bin\Debug\EfCodeFirst.exe.config
+D:\UST\Day24\EfCodeFirst\EfCodeFirst\bin\Debug\EfCodeFirst.exe
+D:\UST\Day24\EfCodeFirst\EfCodeFirst\bin\Debug\EfCodeFirst.pdb
+D:\UST\Day24\EfCodeFirst\EfCodeFirst\bin\Debug\EntityFramework.dll
+D:\UST\Day24\EfCodeFirst\EfCodeFirst\bin\Debug\EntityFramework.SqlServer.dll
+D:\UST\Day24\EfCodeFirst\EfCodeFirst\bin\Debug\EntityFramework.xml
+D:\UST\Day24\EfCodeFirst\EfCodeFirst\bin\Debug\EntityFramework.SqlServer.xml
+D:\UST\Day24\EfCodeFirst\EfCodeFirst\obj\Debug\EfCodeFirst.csproj.AssemblyReference.cache
+D:\UST\Day24\EfCodeFirst\EfCodeFirst\obj\Debug\EfCodeFirst.csproj.SuggestedBindingRedirects.cache
+D:\UST\Day24\EfCodeFirst\EfCodeFirst\obj\Debug\EfCodeFirst.csproj.CoreCompileInputs.cache
+D:\UST\Day24\EfCodeFirst\EfCodeFirst\obj\Debug\EfCodeFirst.csproj.CopyComplete
+D:\UST\Day24\EfCodeFirst\EfCodeFirst\obj\Debug\EfCodeFirst.exe
+D:\UST\Day24\EfCodeFirst\EfCodeFirst\obj\Debug\EfCodeFirst.pdb
