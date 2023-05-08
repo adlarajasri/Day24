@@ -1,0 +1,13 @@
+D:\UST\Day24\EmpModel2\EmpModel2\bin\Debug\EmpModel2.exe.config
+D:\UST\Day24\EmpModel2\EmpModel2\bin\Debug\EmpModel2.exe
+D:\UST\Day24\EmpModel2\EmpModel2\bin\Debug\EmpModel2.pdb
+D:\UST\Day24\EmpModel2\EmpModel2\bin\Debug\EntityFramework.dll
+D:\UST\Day24\EmpModel2\EmpModel2\bin\Debug\EntityFramework.SqlServer.dll
+D:\UST\Day24\EmpModel2\EmpModel2\bin\Debug\EntityFramework.xml
+D:\UST\Day24\EmpModel2\EmpModel2\bin\Debug\EntityFramework.SqlServer.xml
+D:\UST\Day24\EmpModel2\EmpModel2\obj\Debug\EmpModel2.csproj.AssemblyReference.cache
+D:\UST\Day24\EmpModel2\EmpModel2\obj\Debug\EmpModel2.csproj.SuggestedBindingRedirects.cache
+D:\UST\Day24\EmpModel2\EmpModel2\obj\Debug\EmpModel2.csproj.CoreCompileInputs.cache
+D:\UST\Day24\EmpModel2\EmpModel2\obj\Debug\EmpModel2.csproj.CopyComplete
+D:\UST\Day24\EmpModel2\EmpModel2\obj\Debug\EmpModel2.exe
+D:\UST\Day24\EmpModel2\EmpModel2\obj\Debug\EmpModel2.pdb
